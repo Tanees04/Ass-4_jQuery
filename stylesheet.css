@@ -1,3 +1,26 @@
-p{
-    color: blue;
+body {
+    background-color: rgb(231, 226, 226);
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.signin-form, .signup-form {
+    display: flex;
+    display: inline-block;
+    margin: 0 10px; /* Adjust spacing between forms */
+}
+
+.error {
+    color: red;
 }
