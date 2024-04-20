@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Task1.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Login/Signup</title>
+  </head>
+  <body>
+    <div class="contact">
+      <form
+        method="get"
+        action="Task1-success.html"
+        onsubmit="return formValidation()"
+      >
+        <h1>Sign-Up</h1>
+        <div class="feilds">
+          <div class="half1">
+            <p id="f_text">Your Name:</p>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              name="name"
+              id="feild_name"
+            />
+
+            <p id="f_text">Your Username:</p>
+            <input type="text" name="username" placeholder="Enter your username" id="feild_username" />
+
+            <p id="f_text">Your Password:</p>
+            <input type="password" name="password" placeholder="Enter password"  id="feild_pword" />
+
+            <p id="f_text">Gender:</p>
+            <div style="text-align: left; margin-left: 10px; display: flex">
+              <p>
+                <input type="radio" name="gender" id="gender" required /> Male
+              </p>
+              <p>
+                <input type="radio" name="gender" id="gender" required /> Female
+              </p>
+            </div>
+          </div>
+
+          <div class="half2">
+            <p id="f_text">Your Email:</p>
+            <input
+              type="email"
+              placeholder="123@exapmle.com"
+              name="email"
+              id="feild_email"
+            />
+
+            <p id="f_text">Your Phone Number:</p>
+            <input
+              type="number"
+              placeholder="0XXX-XXXXXXX"
+              name="phone"
+              id="feild_num"
+            />
+
+            <p id="f_text">Confirm Password:</p>
+            <input type="password" name="password2" placeholder="Confirm Password" id="feild_cpword" />
+
+            <p id="f_text">Age:</p>
+            <input
+              type="number"
+              placeholder="Enter Age"
+              name="age"
+              id="feild_age"
+            />
+          </div>
+        </div>
+        <button type="submit" id="f_button">Submit</button>
+
+        <button type="reset" id="f_button">Reset</button>
+      </form>
+    </div>
+  </body>
+
+  <script>
+    function formValidation() {
+      var name1 = $("#feild_name").val();
+      var user = $("#feild_username").val();
+      var pword = $("#feild_pword").val();
+      var email = $("#feild_email").val();
+      var cpword = $("#feild_cpword").val();
+      var num = $("#feild_num").val();
+      var age = $("#feild_age").val();
+
+      //Validating name
+      if (name1 === "") {
+        alert("Enter the name");
+        return false;
+      } else {
+        var name_check = /^[a-zA-Z ]+$/;
+        if (!name_check.test(name1)) {
+          alert("Invalid name! \nName must contain alphabets or space");
+          return false;
+        }
+      }
+
+      //Validating email
+      if (email === "") {
+        alert("Enter the email");
+        return false;
+      } else {
+        var email_check = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}$/;
+        if (!email_check.test(email)) {
+          alert("Invalid email! \n Format: 123@exapmle.com");
+          return false;
+        }
+      }
+
+      //Validating username
+      if (user === "") {
+        alert("Enter the username");
+        return false;
+      } else {
+        var user_check = /^[a-zA-Z0-9._-]+$/;
+        if (!user_check.test(user)) {
+          alert("Invalid username");
+          return false;
+        }
+      }
+
+      //Validating phone number
+      if (num === "") {
+        alert("Enter the phone number");
+        return false;
+      } else {
+        var num_check = /^\d{11}$/; //only number and of length 11
+        if (!num_check.test(num)) {
+          alert(
+            "Invalid Phone Number! \n Format: Must contain 11 digits: XXXXXXXXXXX"
+          );
+          return false;
+        }
+      }
+
+      //Validating password
+      //Password must contain at least one lowercase, uppercase, digit, and a special character and must be of 8-15 length
+      if (pword === "") {
+        alert("Enter the password");
+        return false;
+      } else {
+        var pword_check =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#%!*&_()$^":><".])[a-zA-Z0-9@#%!*&_()$^":><".]{8,15}$/;
+        if (!pword_check.test(pword)) {
+          alert(
+            "Invalid password! \nPassword must contain at least one lowercase, uppercase, digit, and a special character and must be of 8-15 length"
+          );
+          return false;
+        }
+      }
+
+      //Confirming password
+      if (cpword === "") {
+        alert("Please Confirm Password");
+        return false;
+      }
+      if (pword != cpword) {
+        alert(
+          "Confirm Password does not match entered password!\n Please confirm password again."
+        );
+        return false;
+      }
+
+      if (age === "") {
+        alert("Enter age");
+        return false;
+      } else {
+        var age_check = /^[1-9][0-9]*$/; // Age should be a positive integer
+        if (!age_check.test(age)) {
+          alert("Invalid age! \n Age for sign-up must be a positive integer");
+          return false;
+        }
+        if (parseInt(age) < 13) {
+          alert("Invalid age! \n Age for sign-up must be 13 or older");
+          return false;
+        }
+      }
+
+      return true;
+    }
+  </script>
+</html>
