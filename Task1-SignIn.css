@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ff8800a9; /* Background color for the body */
+}
+
+.form-container {
+    background-color: #e5ff00; /* Background color for the form container */
+    text-align: center; 
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: auto;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 80%;
+    text-align: left;
+}
+
+.input-container label {
+    color: #333; /* Text color for labels */
+    font-size: large;
+    margin-bottom: 5px;
+}
+
+.input-container input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+}
+
+.form-button {
+    background-color: #4CAF50; /* Green button */
+    color: rgb(255, 255, 255);
+    padding: 12px;
+    text-align: center;
+    margin: 10px;
+    width: 80%;
+    border-radius: 10px; 
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.form-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

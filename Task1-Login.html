@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="Task1-SignIn.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <title>Login/Signup</title>
+    <title>Sign in</title>
 </head>
 <body>
-    <div>
-    <form action="">
-        <h1>Contact Us</h1>
-        <p id = "set_name">Your Name:</p>
-        <input type="text" placeholder="Enter Username" name="name" id="input_username" style="display: block;">
-
-        <p id="set_email">Password:</p>
-        <input type="password" placeholder="Enter your password" name="password" id="password1">
-        <button type="submit">Submit</button>
-  
-        <button type="reset">Reset</button>
-  
-    </form>
+    <div class="contact">
+        <form method="get" action="Task1-success.html" onsubmit="return fromValidation()" class="form-container">
+            <h1>Sign-In</h1>
+            <div class="input-container">
+                <label for="input_username">Username:</label>
+                <input type="text" placeholder="Enter Username" name="name" id="input_username">
+            </div>
     
+            <div class="input-container">
+                <label for="password1">Password:</label>
+                <input type="password" placeholder="Enter your password" name="password" id="password1">
+            </div>
+       
+            <button type="submit" class="form-button">Submit</button>
+      
+            <button type="reset" class="form-button">Reset</button>
+        </form>
+    </div>
+
 </body>
 <script>
     function fromValidation(){
@@ -40,14 +45,14 @@
         }
 
         //Validating password
-        //Password must contain atleast one lowercase, uppercase, digit and a special character and must be of 8-15 length
+        //Password must contain at least one lowercase, uppercase, digit and a special character and must be of 8-15 length
         if (pword == ""){
             alert("Enter the password");
             return false;
         }else{
             var pword_check = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#%!*&_()$^":><".])[a-zA-Z0-9@#%!*&_()$^":><".]{8,15}$/;
             if(!pword_check.test(pword)){
-                alert("Invalid password! \nPassword must contain atleast one lowercase, uppercase, digit and a special character and must be of 8-15 length");
+                alert("Invalid password! \nPassword must contain at least one lowercase, uppercase, digit and a special character and must be of 8-15 length");
                 return false;
             }
         }
